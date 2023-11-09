@@ -1,0 +1,17 @@
+{
+    "version": "0.0.1",
+    "Qm32222222": {
+        "title": "张家老宅",
+        "path": "images/张家老宅.jpg"
+    },
+    "Qm33333333": {
+        "collectionTitle": "张伟的照片",
+        "files": [
+            "Qm34444444"
+        ]
+    },
+    "Qm34444444": {
+        "title": "张伟正在干活",
+        "path": "images/张伟的照片/张伟正在干活.jpg"
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "version": "0.0.1",
+    "Qm22222222": {
+        "title": "张家的祖先",
+        "path": "jiapu://localhost/stories/07ebd37d2878778d9b79d6d130df9e79.json"
+    },
+    "Qm23333333": {
+        "collectionTitle": "张伟的故事",
+        "stories": [
+            "Qm24444444",
+            "Qm25555555"
+        ]
+    },
+    "Qm24444444": {
+        "title": "张伟为苏格拉底辩护",
+        "collection": "Qm23333333",
+        "path": "jiapu://localhost/stories/928eb6385b95d6765eb80c3a7d111813/24892dd801efb78a179f2b6d60e61416.json"
+    },
+    "Qm25555555": {
+        "title": "张伟打虎",
+        "collection": "Qm23333333",
+        "path": "jiapu://localhost/stories/928eb6385b95d6765eb80c3a7d111813/c7af40988b1f1b9e9a4a3e9320142db7.json"
+    }
+}

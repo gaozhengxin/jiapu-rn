@@ -1,0 +1,43 @@
+{
+    "version": "0.0.1",
+    "keyVersion": "v1",
+    "Qm10000010001": {
+        "personId": "10000010001",
+        "surname": "张",
+        "name": "婷",
+        "gender": "female",
+        "dateOfBirth": "1987-06-20",
+        "dateOfDeath": "",
+        "relations": {
+            "Qm10000010003": "father",
+            "1": {
+                "name": "白敬亭",
+                "personId": "白敬亭's id if exists and is accessible / is in public domain",
+                "relation": "idol"
+            }
+        },
+        "portrait": "jiapu://localhost/images/pexels-ike-louie-natividad-3310695.jpg"
+    },
+    "Qm10000010002": {
+        "personId": "10000010002",
+        "surname": "张",
+        "name": "伟",
+        "gender": "male",
+        "dateOfBirth": "1987-06-20",
+        "dateOfDeath": "",
+        "personStory": "jiapu://localhost/stories/94d01659f3b0e0dfd283799004458b7e.json",
+        "personAlbum": "jiapu://localhost/images/张伟",
+        "relations": {
+            "Qm10000010003": "father"
+        }
+    },
+    "Qm10000010003": {
+        "personId": "10000010003",
+        "surname": "张",
+        "name": "大头",
+        "gender": "male",
+        "dateOfBirth": "1938-03-08",
+        "dateOfDeath": "2012-12-21",
+        "portrait": "jiapu://localhost/images/pexels-pixabay-511313.jpg"
+    }
+}

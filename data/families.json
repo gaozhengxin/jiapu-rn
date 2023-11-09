@@ -1,0 +1,34 @@
+{
+    "version": "0.0.1",
+    "100000": {
+        "familyId": "100000",
+        "encryptionSeedHash": {
+            "v1": ""
+        },
+        "rootKey": {
+            "scheme": "",
+            "pubkey": ""
+        },
+        "adminKey": [
+            {
+                "scheme": "ED25519",
+                "pubkey": ""
+            }
+        ],
+        "signature": {},
+        "familyName": "老张家",
+        "person": [
+            "Qm10000010001",
+            "Qm10000010002",
+            "Qm10000010003"
+        ],
+        "stories": [
+            "Qm22222222",
+            "Qm23333333"
+        ],
+        "album": [
+            "Qm32222222",
+            "Qm33333333"
+        ]
+    }
+}
