@@ -7,5 +7,8 @@ module.exports = (async () => {
         resolver: {
             assetExts: [...defaultConfig.resolver.assetExts, "webview", "css", "json"],
         },
+        transformer: {
+            assetPlugins: ['expo-asset/tools/hashAssetFiles'],
+        },
     };
 })();

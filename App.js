@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Button } from 'react-native'
 import "react-native-url-polyfill/auto"
 
+import UserProtal from './pages/UserProtal'
 import Home from './pages/Home'
 import PersonHome from './pages/PersonHome'
 import Person from './pages/Person'
@@ -40,6 +41,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="userProtal" component={UserProtal} options={{ title: t('UserProtal'), headerRight: HeaderRight }} />
         <Stack.Screen name="home" component={Home} options={{ title: "", headerRight: HeaderRight }} />
         <Stack.Screen name="personHome" component={PersonHome} options={{ title: t('Person'), headerRight: HeaderRight }} />
         <Stack.Screen name="person" component={Person} options={{ title: t('Person'), headerRight: HeaderRight }} />

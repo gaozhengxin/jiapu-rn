@@ -14,14 +14,21 @@
     "surname": "姓",
     "name": "名",
     "gender": "性别",
+    "bornIn": "出生：",
+    "diedIn": "逝世：",
     "dateOfBirth": "出生日期",
-    "dateOfDeath": "离世日期",
+    "dateOfDeath": "逝世日期",
     "isDead": "离世",
     "isNotDead": "在世",
     "relations": "人物关系",
     "addRelation": "添加关系",
     "removeRelation": "移除关系",
+    "personStory": "{{person}}的传记",
     "story": "传记",
     "selectPerson": "选择关系人",
-    "Submit": "提交"
+    "edit": "编辑人物",
+    "Submit": "提交",
+    "selectPortrait": "选择肖像",
+    "isAlive": "在世",
+    "storyTemplate": "<h2>生卒年</h2><p>(生卒年)</p><h2>人生经历</h2><p>(人生经历)</p><h2>成就</h2><p>(成就)</p><h2>才能</h2><p>(才能)</p><h2>言行轶事</h2><p>(言行轶事)</p><h2>著作</h2><p>(著作)</p><h2>人物关系</h2><p>(人物关系)</p><h2>评价</h2><p>(评价)</p><h2>本人寄语</h2><p>(本人寄语)</p>"
 }

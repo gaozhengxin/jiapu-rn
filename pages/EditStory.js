@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+
+import { useTranslation } from "react-i18next"
+
 import { ScrollView, View, StyleSheet, Text, TextInput } from 'react-native'
 
 import Editor from '../components/Editor';
@@ -8,6 +11,7 @@ import storyDB from '../data/stories.json'
 import { requireData } from '../data/createMockData'
 
 function EditStory({ route }) {
+    const { t, i18n } = useTranslation(["story", "translation"]);
     let storyId = ""
     let story = {}
     if (route && route.params) {
@@ -21,8 +25,7 @@ function EditStory({ route }) {
 
     return (
         <ScrollView style={styles.screen}>
-            <Text style={styles.text}>Write your family story</Text>
-            <Text style={styles.itemText}>Title</Text>
+            <Text style={styles.itemText}>{t("Title")}</Text>
             <View
                 style={{
                     backgroundColor: '#fff',
@@ -39,7 +42,7 @@ function EditStory({ route }) {
                     style={styles.textInput}
                 />
             </View>
-            <Text style={styles.itemText}>Collection</Text>
+            <Text style={styles.itemText}>{t("Collection")}</Text>
             <View
                 style={{
                     backgroundColor: '#fff',

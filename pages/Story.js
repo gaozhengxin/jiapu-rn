@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, Image, Button, useWindowDimensions } from 'react-native'
+import { ScrollView, StyleSheet, Text, Button, useWindowDimensions } from 'react-native'
 
 import RenderHtml from 'react-native-render-html';
 

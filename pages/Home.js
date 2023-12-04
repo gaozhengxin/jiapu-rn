@@ -8,9 +8,6 @@ import { SearchBar } from "react-native-elements";
 
 import families from '../data/families.json'
 
-const familyId = '100000';
-const userId = 'Qm10000010002'; // 张伟
-
 import {
     PersonIcon,
     StoryIcon,
@@ -23,9 +20,11 @@ import {
     HealthIcon
 } from '../icons/icons'
 
-function Home({ navigation }) {
+function Home({ navigation, route }) {
     const { t, i18n } = useTranslation();
+    const { familyId, userId } = route.params;
     const [search, updateSearch] = useState("")
+    navigation.setOptions({ title: families[familyId]["familyName"] })
     return (
         <ScrollView style={styles.screen}>
             <SearchBar
@@ -86,7 +85,11 @@ function Home({ navigation }) {
                 </TouchableOpacity>
             </View>
             <View style={styles.adsBlock}><Text>广告</Text></View>
-            <ScrollView style={styles.homeContentBlock}><Text>瀑布流</Text><Text>首页推荐内容</Text></ScrollView>
+            <ScrollView style={styles.homeContentBlock}>
+                <Text>首页推荐内容</Text>
+                <Text>文章</Text>
+                <Text>视频</Text>
+            </ScrollView>
         </ScrollView >
     );
 }
@@ -158,7 +161,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'steelblue'
     },
     buttonText: {
-        fontSize: 15
+        fontSize: 13
     },
     adsBlock: {
         height: 200,

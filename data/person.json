@@ -29,7 +29,8 @@
         "personAlbum": "jiapu://localhost/images/张伟",
         "relations": {
             "Qm10000010003": "father"
-        }
+        },
+        "isUser": "u_0000_0000_0000_0001"
     },
     "Qm10000010003": {
         "personId": "10000010003",

@@ -22,17 +22,25 @@ import { initReactI18next } from "react-i18next";
 import { getLocales } from "expo-localization";
 
 // Import all the languages you want here
-import cn from "./locales/cn/common.json";
-import en from "./locales/en/common.json";
+import cn_common from "./locales/cn/common.json";
+import cn_person from "./locales/cn/person.json";
+import cn_story from "./locales/cn/story.json";
+import en_common from "./locales/en/common.json";
+import en_person from "./locales/en/common.json";
+import en_story from "./locales/en/common.json";
 
 i18n.use(initReactI18next).init({
     // Add any imported languages here
     resources: {
         cn: {
-            translation: cn,
+            translation: cn_common,
+            person: cn_person,
+            story: cn_story,
         },
         en: {
-            translation: en,
+            translation: en_common,
+            person: en_person,
+            story: en_story,
         }
     },
     //lng: getLocales()[0].languageCode,

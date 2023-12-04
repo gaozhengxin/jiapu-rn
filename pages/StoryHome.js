@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
 
 import { ScrollView, StyleSheet, Text, SectionList } from 'react-native'
 
@@ -38,8 +38,9 @@ const StoryList = ({ navigation, data, collectionTitle }) => {
 }
 
 function StoryHome({ navigation, route }) {
-    const { t, i18n } = useTranslation();
-    const { familyId, personId } = route.params;
+    const { t, i18n } = useTranslation(["story", "translation"]);
+    const { familyId } = route.params;
+    const stories = families[familyId]["stories"] ? families[familyId]["stories"] : [];
     return (
         <ScrollView style={styles.screen}>
             <Text style={styles.headlineText} onPress={() => navigation.navigate('storyHome')}>{t("Stories")}</Text>
@@ -47,9 +48,9 @@ function StoryHome({ navigation, route }) {
             <Text
                 onPress={() => navigation.navigate('story/edit')}
                 style={styles.itemText}
-            >Add a story</Text>
+            >{t("CreateStory")}</Text>
 
-            <StoryList navigation={navigation} data={families[familyId]["stories"]} collectionTitle={""} />
+            <StoryList navigation={navigation} data={stories} collectionTitle={""} />
         </ScrollView>
     );
 }

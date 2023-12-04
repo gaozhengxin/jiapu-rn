@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "jiapu-app",
-    "slug": "jiapu-app",
+    "slug": "jiapu",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.wangdefa.jiapu"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -35,6 +36,12 @@
         }
       ],
       "expo-localization"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "2de2c248-4143-449b-9668-40aaf2857120"
+      }
+    },
+    "owner": "wangdefa"
   }
 }

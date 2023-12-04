@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useTranslation } from "react-i18next";
 
-import { ScrollView, StyleSheet, Text, FlatList } from 'react-native'
+import { ScrollView, StyleSheet, Button, Text, FlatList, TouchableHighlight } from 'react-native'
 
 import families from '../data/families.json'
 import personDB from '../data/person.json'
@@ -15,10 +15,9 @@ function PersonHome({ navigation, route }) {
     return (
         <ScrollView style={styles.screen}>
             <Text style={styles.headlineText}>{t("Person")}</Text>
-            <Text
-                onPress={() => navigation.navigate('person/edit')}
-                style={styles.itemText}
-            >Add a person</Text>
+            <TouchableHighlight>
+                <Button style={styles.itemText} onPress={() => navigation.navigate('person/edit')} title={t("CreatePerson")} />
+            </TouchableHighlight>
             <FlatList
                 data={families[familyId]["person"]}
                 renderItem={({ item }) => <Text

@@ -6,3 +6,5 @@ export function hash(payload) {
     let res = hasher.hex()
     return res
 }
+
+console.log(hash("张伟打官司"))

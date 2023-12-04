@@ -1,5 +1,8 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, Image, Button, useWindowDimensions } from 'react-native'
+
+import { useTranslation } from "react-i18next";
+
+import { ScrollView, View, StyleSheet, Text, Image, Button, TouchableHighlight, useWindowDimensions } from 'react-native'
 
 import RenderHtml from 'react-native-render-html';
 
@@ -13,6 +16,7 @@ const blurhash =
     '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
 function Person({ navigation, route }) {
+    const { t, i18n } = useTranslation(["person", "translation"]);
     const { personId } = route.params;
     let person = personDB[personId]
     let portrait = requireData(person.portrait)
@@ -24,34 +28,40 @@ function Person({ navigation, route }) {
     return (
         <ScrollView style={styles.screen}>
             <Text style={styles.headlineText}>{makeName(person)}</Text>
-            <Button style={styles.headlineText} onPress={() => navigation.navigate('person/edit', { personId: personId })} title="edit" />
+            <TouchableHighlight>
+                <Button style={styles.headlineText} onPress={() => navigation.navigate('person/edit', { personId: personId })} title={t("edit")} />
+            </TouchableHighlight>
             <Image
                 style={styles.portrait}
                 source={portrait}
                 placeholder={blurhash}
                 contentFit="cover"
             />
-            <Text style={styles.itemText}>{person.gender}</Text>
-            <Text style={styles.itemText}>Born in</Text>
-            <Text style={styles.itemText}>{person.dateOfBirth}</Text>
-            {
-                person.dateOfDeath !== "" &&
-                <>
-                    <Text style={styles.itemText}>Died in</Text>
-                    <Text style={styles.itemText}>{person.dateOfDeath}</Text>
-                </>
-            }
-            <Text style={styles.itemText}>Related</Text>
+            <View style={styles.block}>
+                <Text style={styles.itemText}>{t(person.gender)}</Text>
+                <View style={styles.oneLine}>
+                    <Text style={styles.itemText}>{t("bornIn")}</Text>
+                    <Text style={styles.itemText}>{person.dateOfBirth}</Text>
+                </View>
+                {
+                    person.dateOfDeath !== "" &&
+                    <View style={styles.oneLine}>
+                        <Text style={styles.itemText}>{t("diedIn")}</Text>
+                        <Text style={styles.itemText}>{person.dateOfDeath}</Text>
+                    </View>
+                }
+            </View>
+            <Text style={styles.headlineText}>{t("relations")}</Text>
             {person.personStory && (
                 <>
-                    <Text style={styles.itemText}>{makeName(person)}'s story</Text>
+                    <Text style={styles.headlineText}>{t("personStory", { person: makeName(person) })}</Text>
                     <RenderHtml
                         contentWidth={width}
                         source={{ html: story.content }}
                     />
                 </>
             )}
-            {(!person.personStory || (person.personStory === '')) && (<Text style={styles.itemText}>No person story</Text>)}
+            {(!person.personStory || (person.personStory === '')) && (<Text />)}
         </ScrollView>
     );
 }
@@ -68,9 +78,21 @@ const styles = StyleSheet.create({
         fontSize: 25,
         color: "#000"
     },
+    block: {
+        backgroundColor: "white",
+        borderRadius: 10,
+        borderColor: "black",
+        borderWidth: 1,
+        margin: 10,
+        padding: 5
+    },
+    oneLine: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+    },
     itemText: {
-        marginTop: 25,
-        fontSize: 20,
+        margin: 5,
+        fontSize: 15,
         color: "#000"
     },
     portrait: {
@@ -79,9 +101,7 @@ const styles = StyleSheet.create({
         width: 100,
         resizeMode: 'contain',
         backgroundColor: 'transparent',
-        position: 'absolute',
-        top: 0,
-        right: 0
+        margin: 10
     },
     portrait2: {
         margin: 'auto',

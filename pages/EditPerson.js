@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+
+import { useTranslation } from "react-i18next";
+
 import { ScrollView, View, StyleSheet, Text, TextInput, Button, Image } from 'react-native'
 
 import Checkbox from 'expo-checkbox';
@@ -51,6 +54,7 @@ const storyTemplate = `
     `
 
 function EditPerson({ route }) {
+    const { t, i18n } = useTranslation(["person", "translation"]);
     let person = {}
     if (route && route.params) {
         const { personId } = route.params;
@@ -64,7 +68,7 @@ function EditPerson({ route }) {
     const [isAlive, setIsAlive] = useState(true)
 
     let story = requireData(person.personStory)
-    let storyContent = story.content ? JSON.stringify(story.content).slice(1, -1) : JSON.stringify(storyTemplate).slice(1, -1)
+    let storyContent = story.content ? JSON.stringify(story.content).slice(1, -1) : JSON.stringify(t("storyTemplate")).slice(1, -1)
 
     let portrait = requireData(person.portrait)
     portrait = portrait ? portrait : '/images/defaultPortrait.jpg'
@@ -85,7 +89,7 @@ function EditPerson({ route }) {
 
     return (
         <ScrollView style={styles.screen}>
-            <Text style={styles.itemText}>Surname</Text>
+            <Text style={styles.itemText}>{t("surname")}</Text>
             <View
                 style={{
                     backgroundColor: '#fff',
@@ -103,7 +107,7 @@ function EditPerson({ route }) {
                 />
             </View>
 
-            <Text style={styles.itemText}>Name</Text>
+            <Text style={styles.itemText}>{t("name")}</Text>
             <View
                 style={{
                     backgroundColor: '#fff',
@@ -121,7 +125,7 @@ function EditPerson({ route }) {
                 />
             </View>
 
-            <Text style={styles.itemText}>Gender</Text>
+            <Text style={styles.itemText}>{t("gender")}</Text>
             <View
                 style={{
                     backgroundColor: '#fff',
@@ -139,7 +143,6 @@ function EditPerson({ route }) {
                 />
             </View>
 
-            <Text style={styles.itemText}>Portrait</Text>
             <Image
                 style={styles.portrait}
                 source={portrait}
@@ -147,11 +150,11 @@ function EditPerson({ route }) {
                 contentFit="cover"
             />
             <Button
-                title="Select Portrait"
+                title={t("selectPortrait")}
                 onPress={_pickDocument}
             />
 
-            <Text style={styles.itemText}>Date of birth</Text>
+            <Text style={styles.itemText}>{t("dateOfBirth")}</Text>
             {setShowDate1 && (
                 <DateTimePicker
                     value={date1}
@@ -165,7 +168,7 @@ function EditPerson({ route }) {
                 />
             )}
 
-            <Text style={styles.itemText}>Is alive</Text>
+            <Text style={styles.itemText}>{t("isAlive")}</Text>
             <Checkbox
                 value={isAlive}
                 onValueChange={setIsAlive}
@@ -174,7 +177,7 @@ function EditPerson({ route }) {
             {
                 (!isAlive) &&
                 <>
-                    <Text style={styles.itemText}>Date of death</Text>
+                    <Text style={styles.itemText}>{t("dateOfDeath")}</Text>
                     <DateTimePicker
                         value={date2}
                         mode={'date'}
@@ -188,9 +191,9 @@ function EditPerson({ route }) {
                 </>
             }
 
-            <Text style={styles.itemText}>Relations</Text>
+            <Text style={styles.itemText}>{t("relations")}</Text>
 
-            <Text style={styles.itemText}>Story</Text>
+            <Text style={styles.itemText}>{t("story")}</Text>
             <Editor style={styles.editor} value={storyContent} placeholder="Add your story here..." />
         </ScrollView>
     );
@@ -208,12 +211,12 @@ const styles = StyleSheet.create({
         color: "#000"
     },
     itemText: {
-        marginTop: 25,
+        margin: 5,
         fontSize: 20,
         color: "#000"
     },
     textInput: {
-        marginTop: 25,
+        margin: 5,
         fontSize: 20,
         color: "000",
     },
